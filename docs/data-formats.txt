@@ -1,0 +1,163 @@
+Here is an expanded list of supported data formats and file types compatible with the OSDU platform, covering a wide range of file extensions and use cases for subsurface and energy-related data management.
+
+### 1. **Well Data Formats**
+   - **LAS (Log ASCII Standard)**: `.las`
+     - Common format for storing well log data in ASCII format.
+   - **DLIS (Digital Log Interchange Standard)**: `.dlis`
+     - Binary format used to store well log data, particularly for more complex data sets.
+   - **WITSML (Wellsite Information Transfer Standard Markup Language)**: `.xml`
+     - XML-based standard for exchanging well log and wellsite information.
+   - **CSV (Comma-Separated Values)**: `.csv`
+     - A simple tabular format often used for well log and operational data.
+   - **Excel**: `.xls`, `.xlsx`
+     - Spreadsheet formats used for well data, production data, and other tabular forms.
+   - **Well Log Curve Data**: `.asc`, `.txt`
+     - Generic text or ASCII formats for specific well log curve data.
+
+### 2. **Seismic Data Formats**
+   - **SEG-Y**: `.sgy`, `.segy`
+     - A binary format for storing processed seismic data (2D or 3D).
+   - **SEG-D**: `.segd`
+     - Standard format for raw seismic field data used during acquisition.
+   - **SEG-P1**: `.p1`
+     - A format for storing seismic navigation and position data.
+   - **SEGD Rev 3.x**: `.sgd`
+     - Updated versions of the SEG-D format, used for improved seismic acquisition data.
+   - **PSDM (Prestack Depth Migration)**: `.psdm`
+     - Formats specific to seismic migration in depth.
+   - **RSF (Regularly Sampled Format)**: `.rsf`
+     - Format used for seismic data processing, particularly in research and modeling.
+   - **XTF (eXtended Triton Format)**: `.xtf`
+     - Common format used for sonar and sub-bottom profiling in geophysical applications.
+
+### 3. **Reservoir and Geophysical Data Formats**
+   - **GRDECL (Eclipse Grid Format)**: `.grdecl`
+     - Common format for representing reservoir grids in Eclipse reservoir simulation software.
+   - **RESCUE (Rescue Data Exchange Format)**: `.rescue`, `.rsf`
+     - Data format for reservoir simulation and modeling applications.
+   - **Nexus Reservoir Simulation Data**: `.sim`, `.grid`, `.init`
+     - File types used by Nexus for reservoir simulations.
+   - **HDF5 (Hierarchical Data Format)**: `.h5`, `.hdf5`
+     - Binary format for storing large-scale data, used in seismic and reservoir simulations.
+   - **SPE-PRMS (Petroleum Resources Management System)**: `.prms`
+     - Standard format for managing petroleum resource data.
+   - **Voxet (Paradigm GeoDepth)**: `.vo`
+     - Common format for 3D volumetric data in geophysical applications.
+
+### 4. **Production Data Formats**
+   - **PRODML (Production Markup Language)**: `.xml`
+     - XML-based standard used for exchanging production data.
+   - **Time-series Data**: `.csv`, `.txt`
+     - CSV or text files storing time-series production data.
+   - **HDF5 (Time-series)**: `.h5`, `.hdf5`
+     - Common format for storing large-scale time-series production data.
+   - **Petrel Production Data**: `.ppt`, `.pet`
+     - Formats used in Schlumberger Petrel software for production and reservoir management.
+
+### 5. **Petrophysical and Core Analysis Data Formats**
+   - **LAS (Log ASCII Standard)**: `.las`
+     - Commonly used for petrophysical logs.
+   - **ASCII Text**: `.txt`
+     - Generic format used for core sample and petrophysical property data.
+   - **Core Analysis Reports**: `.pdf`, `.doc`, `.docx`
+     - Formats for core analysis documentation and reporting.
+   - **Binary Core Data**: `.bin`
+     - Binary format for storing raw core analysis data.
+   - **JPEG, PNG, TIFF**: `.jpg`, `.jpeg`, `.png`, `.tiff`
+     - Image formats used for capturing core and rock sample images.
+
+### 6. **Geospatial Data Formats**
+   - **Shapefile (ESRI)**: `.shp`, `.shx`, `.dbf`
+     - Common format for geospatial vector data (e.g., geological maps, boundaries).
+   - **GeoJSON**: `.geojson`
+     - JSON-based format for encoding a variety of geospatial data structures.
+   - **Wellhead Coordinates**: `.csv`, `.xls`, `.xlsx`
+     - Coordinate data for well locations.
+   - **KML (Keyhole Markup Language)**: `.kml`, `.kmz`
+     - XML-based format used for storing geographic data in maps, often used with Google Earth.
+   - **WKT (Well-Known Text)**: `.wkt`
+     - A text markup language for representing vector geometry data.
+   - **GeoTIFF**: `.tif`, `.tiff`
+     - A georeferenced raster image format used for storing geospatial imagery (e.g., topographical maps, satellite images).
+   - **NetCDF (Network Common Data Form)**: `.nc`, `.cdf`
+     - Format for array-oriented scientific data, often used for gridded geospatial data.
+
+### 7. **Document and Metadata Formats**
+   - **JSON (JavaScript Object Notation)**: `.json`
+     - Primary format for storing metadata, schema, and manifests in OSDU.
+   - **XML (Extensible Markup Language)**: `.xml`
+     - Common format for exchanging structured data and metadata.
+   - **PDF (Portable Document Format)**: `.pdf`
+     - Common format for geoscience reports, well reports, and regulatory documentation.
+   - **Word Documents**: `.doc`, `.docx`
+     - Format for textual documents such as operational reports, studies, and analysis.
+   - **CSV (Comma-Separated Values)**: `.csv`
+     - Used for tabular metadata or datasets.
+   - **YAML (YAML Ain't Markup Language)**: `.yaml`, `.yml`
+     - Human-readable data serialization format often used for configuration files.
+
+### 8. **Geological Data Formats**
+   - **RESCUE**: `.rescue`
+     - Used for exchanging geological and reservoir model data.
+   - **Petrel Geological Model**: `.ppt`, `.pet`
+     - Used for storing geological models within the Petrel software environment.
+   - **ASCII Text**: `.txt`
+     - Commonly used for stratigraphy, lithology, and biostratigraphy data in plain text format.
+   - **Lithological Data**: `.csv`, `.xls`, `.xlsx`
+     - Tabular format for geological and lithological data.
+
+### 9. **Geomechanical Data Formats**
+   - **Geomechanical Data Files**: `.csv`, `.xls`, `.xlsx`
+     - Files containing geomechanical properties such as stress, strain, and Young’s modulus.
+   - **Finite Element Model Data**: `.fem`, `.inp`
+     - Formats used for geomechanical simulation and finite element analysis.
+   - **Stress-Strain Data**: `.txt`, `.csv`
+     - Files containing stress-strain test results, typically in tabular format.
+
+### 10. **Fluid and PVT Data Formats**
+   - **PVT (Pressure, Volume, Temperature) Data**: `.csv`, `.xls`, `.xlsx`
+     - Standard format for fluid analysis and reservoir characterization data.
+   - **Fluid Sample Data**: `.xml`, `.csv`
+     - Data formats used to store fluid sample properties and compositions.
+   - **EOS Model Data**: `.eos`, `.dat`
+     - Equation of State models for reservoir fluids, used in simulation tools.
+
+### 11. **Environmental and Metocean Data Formats**
+   - **NetCDF**: `.nc`, `.cdf`
+     - Used for storing environmental and meteorological data in grid format.
+   - **Metocean Data**: `.csv`, `.xls`
+     - Files storing time-series data on oceanographic and weather conditions.
+   - **HSE (Health, Safety, and Environment) Data**: `.xml`, `.csv`
+     - Regulatory compliance and incident data often stored in these formats.
+
+### 12. **Time-Series and Monitoring Data Formats**
+   - **Time-Series Data**: `.csv`, `.txt`, `.json`
+     - Formats for continuous monitoring data (e.g., well pressures, flow rates, seismic events).
+   - **HDF5 (Time-Series)**: `.h5`, `.hdf5`
+     - Used for large-scale, multi-dimensional time-series data.
+
+### 13. **Pipeline and Facility Data Formats**
+   - **Pipeline Geometry Data**: `.shp`, `.geojson`, `.csv`
+     - Formats for storing pipeline routing and geographical location data.
+   - **Surface Facility Data**: `.xls`, `.xlsx`, `.csv`
+     - Formats for storing facility operational data, measurement data, and flow rates.
+
+---
+
+### Supported Extensions Recap by Format Category
+
+- **Structured Data**: `.json`, `.xml`, `.csv`, `.xls`, `.xlsx`, `.yaml`, `.yml`
+- **Seismic Data**: `.sgy`, `.segy`, `.segd`, `.p1`, `.rsf`, `.xtf`
+- **Well Data**: `.las`, `.dlis
+
+`, `.csv`, `.txt`, `.xml`, `.xls`, `.xlsx`
+- **Reservoir and Simulation Data**: `.grdecl`, `.rescue`, `.h5`, `.prms`, `.sim`, `.grid`
+- **Geospatial Data**: `.shp`, `.geojson`, `.wkt`, `.kml`, `.kmz`, `.tif`, `.tiff`, `.nc`
+- **Documents**: `.pdf`, `.doc`, `.docx`
+- **Petrophysical Data**: `.las`, `.txt`, `.csv`, `.jpg`, `.jpeg`, `.png`, `.tiff`
+
+---
+
+### Conclusion
+
+The OSDU platform is designed to handle a wide range of file types and formats across different data domains, ensuring support for subsurface exploration, geophysical data, well and reservoir data, production, environmental, and operational data. This compatibility allows for flexible and comprehensive management of energy-related data in various formats that are common in the oil and gas industry.

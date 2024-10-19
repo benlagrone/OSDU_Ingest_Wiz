@@ -1,0 +1,119 @@
+The OSDU (Open Subsurface Data Universe) platform supports a wide range of data types, covering different aspects of subsurface data management in the oil and gas industry. Below is an exhaustive list of data types compatible with OSDU, categorized by their typical use cases. This list includes key data types supported by OSDU schema standards, which enable the structured ingestion, storage, and management of energy-related data.
+
+### 1. **Well Data Types**
+   - **Wellbore Data**: Information about wellbore geometry, drilling operations, and trajectory.
+   - **Well Log Data**:
+     - LAS (Log ASCII Standard)
+     - DLIS (Digital Log Interchange Standard)
+     - WITSML (Wellsite Information Transfer Standard Markup Language)
+   - **Well Header Data**: Metadata such as well name, well identifier, location, and operator.
+   - **Mud Log Data**: Details about cuttings and lithology encountered while drilling.
+   - **Core Sample Data**: Physical samples extracted from wells, including descriptions and metadata.
+   - **Drilling Data**: Data from real-time drilling operations such as depth, rate of penetration (ROP), mud weight, and torque.
+   - **Formation Test Data**: Data from formation pressure testing and fluid sampling.
+   - **Casing Data**: Details about casing types, depths, and diameters used in well completions.
+
+### 2. **Seismic Data Types**
+   - **Seismic Survey Metadata**: Information about seismic acquisition, processing, and interpretation.
+   - **2D/3D Seismic Data**:
+     - SEG-Y (Standard for storing geophysical data)
+     - SEG-D (Standard for seismic field data)
+     - SEG-P1 (Position data format for seismic navigation)
+   - **Processed Seismic Volumes**: Stacked, migrated, and post-processed seismic data volumes.
+   - **Seismic Interpretation Data**: Data such as fault polygons, horizon interpretations, and seismic attributes.
+   - **Velocity Model Data**: Data used for depth conversion of seismic time data to depth data.
+
+### 3. **Reservoir Data Types**
+   - **Reservoir Models**: Models representing reservoir properties such as porosity, permeability, and fluid saturations.
+   - **Reservoir Simulation Data**: Includes reservoir models, fluid flow simulations, and production forecasting data.
+   - **Pressure and Temperature Data**: Data gathered from downhole tools measuring reservoir conditions.
+   - **Petrophysical Data**: Information regarding the physical and chemical properties of rocks.
+
+### 4. **Geophysical Data Types**
+   - **Gravity Data**: Information regarding variations in the Earth's gravitational field, typically used in exploration.
+   - **Magnetic Data**: Data about the Earth's magnetic field for geological and geophysical exploration.
+   - **EM (Electromagnetic) Data**: Electromagnetic survey data used for subsurface exploration.
+
+### 5. **Production Data Types**
+   - **Production History Data**: Time-series data tracking oil, gas, and water production rates over time.
+   - **Flow Rate Data**: Flow rates of hydrocarbons and other fluids in wells or pipelines.
+   - **Reservoir Production Data**: Data about the amount of hydrocarbon extracted from specific reservoirs over time.
+   - **Injection Data**: Data related to fluid injections (water, gas, or chemicals) used for enhanced oil recovery (EOR) or secondary recovery.
+
+### 6. **Surface Facility Data Types**
+   - **Pipeline Data**: Data on pipeline routing, flow rates, and pressures.
+   - **Facility Operation Data**: Metadata and real-time operational data from production facilities (e.g., platforms, refineries).
+   - **Measurement Data**: Flow and pressure measurement data at surface facilities.
+
+### 7. **Geological Data Types**
+   - **Geological Maps and Cross-sections**: Digitized representations of geological formations.
+   - **Stratigraphic Data**: Data representing different rock layers and their properties.
+   - **Lithology Data**: Detailed descriptions of rock types and their properties.
+   - **Biostratigraphic Data**: Data about fossils within rock formations used for dating and correlating rock layers.
+
+### 8. **Geomechanical Data Types**
+   - **Stress and Strain Data**: Data related to rock stress fields and strain in geological formations.
+   - **Mechanical Property Data**: Information about the mechanical properties of subsurface materials, including compressibility, shear strength, and Young’s modulus.
+
+### 9. **Petrophysical and Core Analysis Data**
+   - **Core Analysis Reports**: Results from laboratory analysis of core samples, including porosity, permeability, and fluid saturation.
+   - **Petrophysical Logs**: Data from downhole logging tools measuring physical properties of rocks.
+   - **Saturation and Porosity Data**: Data representing the fluid saturation and porosity of rocks.
+
+### 10. **Fluid Data Types**
+   - **PVT (Pressure, Volume, Temperature) Data**: Data used to characterize reservoir fluids.
+   - **Fluid Sample Data**: Information about oil, gas, and water samples taken from wells or reservoirs.
+   - **Fluid Properties**: Characteristics of hydrocarbons and other fluids, including viscosity, density, and composition.
+
+### 11. **Environmental and Operational Data Types**
+   - **Weather and Metocean Data**: Environmental conditions relevant to offshore operations, including wind speed, wave height, and temperature.
+   - **HSE (Health, Safety, Environment) Data**: Compliance and safety reports, environmental monitoring data, and incident reports.
+   - **Operational Logs**: Time-stamped logs of operational activities, including drilling, completions, and interventions.
+
+### 12. **Geospatial Data Types**
+   - **GIS (Geographic Information System) Data**: Spatial data in formats such as Shapefiles or GeoJSON.
+   - **Survey Data**: Positioning data from land and marine surveys, including GPS coordinates, boundaries, and topographical information.
+
+### 13. **Document and Metadata Types**
+   - **Reports and Studies**: Geoscience, engineering, and operational reports stored as documents (e.g., PDF, Word).
+   - **Metadata Records**: Information about datasets, such as creation date, owner, version, and dataset descriptions.
+
+### 14. **Production Equipment and Inventory Data Types**
+   - **Equipment Specifications**: Data on the specifications and operational capabilities of equipment used in exploration and production.
+   - **Inventory Data**: Information on available resources, tools, and materials needed for field operations.
+
+### 15. **Logistics and Supply Chain Data Types**
+   - **Logistics Data**: Data on transportation, supply chain management, and equipment movement.
+   - **Shipping and Routing Data**: Information on vessel and vehicle routes, schedules, and cargo details.
+
+### 16. **Time-series and Monitoring Data Types**
+   - **Sensor Data**: Continuous monitoring data from sensors deployed in wells or surface facilities (e.g., pressure, temperature).
+   - **Time-series Production Data**: Longitudinal data tracking production variables such as flow rate and pressure over time.
+
+### 17. **Laboratory and Analytical Data Types**
+   - **Sample Analysis Data**: Data from laboratory analysis of core, fluid, or rock samples.
+   - **Chemical Composition Data**: Analytical results of rock and fluid chemistry, such as hydrocarbon composition or mineralogy.
+
+### 18. **Legal and Contractual Data**
+   - **License and Permit Data**: Information regarding the legal rights to explore and produce in specific areas.
+   - **Contract Data**: Contracts and agreements between operators, partners, and regulatory bodies.
+
+---
+
+### Supported Data Formats
+The OSDU platform supports several common formats for data ingestion:
+
+- **JSON** (JavaScript Object Notation): For structured metadata and manifests.
+- **CSV** (Comma-Separated Values): For tabular data such as well logs and production data.
+- **LAS** (Log ASCII Standard): A standard format for well log data.
+- **DLIS** (Digital Log Interchange Standard): For storing well log data.
+- **SEG-Y**: For seismic data in binary format.
+- **SEG-D**: For raw field seismic data.
+- **Shapefiles** and **GeoJSON**: For geospatial data.
+- **XML**: Used for various interchange standards like WITSML.
+
+---
+
+### Conclusion
+
+The OSDU platform is designed to be highly flexible and extensible, supporting a wide range of data types critical for subsurface data management. The supported data types and formats span across well, seismic, reservoir, geological, and operational data, ensuring comprehensive support for energy exploration and production activities.

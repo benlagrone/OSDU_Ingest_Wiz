@@ -1,0 +1,160 @@
+To successfully ingest the Volve dataset into an Azure Data Manager for Energy (ADME) instance, you will need to follow a series of detailed steps, including prerequisites and dependency configurations. Below is a comprehensive breakdown of everything you need:
+
+### Prerequisites
+
+1. **Azure Data Manager for Energy (ADME) Instance**: Ensure that ADME is already provisioned and accessible via the Azure portal. Verify network configurations, authentication (Azure Active Directory), and role-based access controls (RBAC).
+
+2. **OSDU Schema Knowledge**: Familiarize yourself with the OSDU schemas that are used for organizing and managing energy data. Volve data must conform to an OSDU-compliant schema. 
+
+3. **Azure Subscription and Resources**: You must have an Azure subscription with sufficient resources and access to:
+   - Azure Blob Storage for data storage
+   - Azure Data Factory or any other ETL pipeline tool for data ingestion
+   - Active Directory (AAD) integration with correct user roles and permissions
+   
+4. **Schema Version Selection**: Determine which version of the OSDU schema aligns with the Volve dataset. This may require consultation with the OSDU documentation or schema service to choose the right schema version.
+
+5. **Volve Dataset Preparation**: Ensure that the Volve dataset is available, and data is formatted according to the expected OSDU schema format, such as JSON, CSV, LAS, etc.
+
+---
+
+### Step-by-Step Process to Ingest Volve Data into ADME
+
+#### 1. **Select and Register the Schema**
+
+   1.1 **Choose OSDU Schema Version**:  
+   - You need to select the correct OSDU schema version based on the structure of the Volve dataset. Each version may have different fields, types, or expectations. You can find schema versions via the OSDU schema service.
+   - The schema typically follows the format: `authority:source:entity-type:major-version.minor-version.patch-version`.
+   
+   1.2 **Register the Schema in ADME**:
+   - The schema must be registered in ADME before any data can be ingested. This is done by using the **Schema service** in ADME.
+   - Upload the schema in JSON format through the Azure portal or via the REST API.
+   - Example:
+     ```json
+     {
+         "schema": {
+             "type": "object",
+             "properties": {
+                 "wellID": {"type": "string"},
+                 "wellName": {"type": "string"},
+                 "depth": {"type": "number"}
+             },
+             "required": ["wellID", "depth"]
+         }
+     }
+     ```
+   - Ensure the schema is validated and successfully registered.
+
+#### 2. **Prepare and Ingest Reference Data**
+
+   2.1 **Load Reference Data**:
+   - The Volve data likely depends on reference data (e.g., well metadata, geographical regions, unit conversions) that should be loaded first.
+   - Reference data must conform to the schema and should be registered before any master or well data.
+   - Use Azure Data Factory (ADF) or another ingestion tool to load this data into ADME. Store reference data in Azure Blob Storage, and point ADME to this storage location.
+
+   2.2 **Ensure Referential Integrity**:
+   - When loading reference data, ensure that all identifiers (like well IDs, field IDs) are consistent and align with the Volve data that will be ingested later. These identifiers should be unique and traceable in the schema.
+
+#### 3. **Create and Ingest Master Data**
+
+   3.1 **Prepare Well and Field Master Data**:
+   - Master data includes the central entities such as wells, fields, and production entities. These must be created or extracted from the Volve dataset.
+   - Ensure the master data follows the OSDU schema format and includes unique identifiers that can link to work product components and datasets.
+
+   3.2 **Ingest Master Data**:
+   - Upload master data into ADME. Use the ADME’s Dataset service to upload data and register the metadata records.
+   - Example of Master Data JSON:
+     ```json
+     {
+         "wellID": "Volve-123",
+         "wellName": "Volve Main Well",
+         "depth": 5000,
+         "location": {
+             "lat": 59.565,
+             "long": 2.25
+         }
+     }
+     ```
+
+#### 4. **Ingest WorkProduct and Dataset Manifests**
+
+   4.1 **Create Manifest Files**:
+   - The manifest is a key component in linking the Volve data to the well or entity it represents. The manifest files are JSON documents that describe relationships between the data.
+   - The manifest should include:
+     - **ReferenceData**: Ensure reference data such as well IDs or location data is included.
+     - **MasterData**: Include well metadata, ensuring the schema fields are correctly filled.
+     - **WorkProductComponents**: Reference the Volve well data, linking each dataset to the corresponding well.
+     - **Datasets**: This section includes the actual data files (e.g., seismic, logs, production) that should be linked to the well or field.
+
+   4.2 **Modify Example Manifests for Volve**:
+   - Use existing OSDU manifest templates to create the Volve manifest by modifying the fields to match your data. Here is a simplified example:
+     ```json
+     {
+       "workProductID": "Volve-WP-123",
+       "masterData": {
+         "wellID": "Volve-123",
+         "wellName": "Volve Main Well"
+       },
+       "workProductComponents": [
+         {
+           "componentID": "Volve-123-Component",
+           "datasets": [
+             {
+               "datasetID": "Volve-123-Dataset",
+               "filePath": "https://blobstorageurl/Volve/logs/volvelog.las"
+             }
+           ]
+         }
+       ]
+     }
+     ```
+
+   4.3 **Ingest Manifests**:
+   - Use the ADME Dataset service to ingest manifests. Follow these steps:
+     - Use the REST API to get storage instructions for the datasets.
+     - Upload the manifest and dataset to the specified Blob Storage.
+     - Store metadata records in ADME, ensuring that the record IDs for the manifest are retained for further workflows.
+
+#### 5. **Pipeline Configuration for Large Data Files**
+
+   5.1 **Azure Data Factory (ADF) Setup**:
+   - For large volumes of data such as well logs, seismic data, or production data, use Azure Data Factory to manage data movement and transformation.
+   - Create pipelines that handle data extraction from source systems, transformation to meet schema requirements, and loading into ADME.
+
+   5.2 **Validate Data Format and Integrity**:
+   - Ensure that the data you are loading matches the format specified in the schema. Validate data integrity before ingestion.
+
+   5.3 **Ingest Large Data Files**:
+   - For large files, upload them in batches if needed. ADME’s Dataset service allows for multi-part uploads if the files are large.
+
+#### 6. **Test and Validate Ingestion**
+
+   6.1 **Test the Pipeline**:
+   - Run ingestion on a subset of the Volve data to ensure that everything is working as expected.
+   - Validate that the ingested data conforms to the schema, manifests are correctly linked, and no referential integrity is broken.
+
+   6.2 **Check Logs and Errors**:
+   - Use Azure Monitor to track pipeline execution and ensure no errors occurred during the data load.
+   - Fix any errors or schema validation issues that arise during testing.
+
+   6.3 **Ingest Full Dataset**:
+   - Once the ingestion pipeline is validated, load the full Volve dataset.
+
+#### 7. **Post-Ingestion Validation and Searchability**
+
+   7.1 **Verify Data Integrity**:
+   - Check the ingested data within ADME. Ensure that all data is correctly linked to the wells or fields as expected.
+
+   7.2 **Test Search and Query**:
+   - Use ADME’s search capabilities to query the ingested Volve data. Ensure that all datasets are searchable and reference the correct well components and metadata.
+
+---
+
+### Dependencies
+
+- **Azure Blob Storage**: The Volve data files must be stored in Blob Storage and linked in the manifest.
+- **OSDU Schema**: The schema must be correctly selected, registered, and validated to ensure conformity.
+- **Azure Data Factory (ADF)**: For managing data pipelines and ingestion workflows.
+- **Authentication and Role Permissions**: Ensure proper Azure Active Directory (AAD) roles are set for access and data management.
+- **REST API Access**: Use ADME’s REST API for storage instructions and manifest uploads.
+  
+Following this process will ensure that your ADME instance is prepared to ingest and manage the Volve dataset effectively, with all dependencies and prerequisites handled.
