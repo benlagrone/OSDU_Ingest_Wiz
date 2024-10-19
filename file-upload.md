@@ -26,7 +26,7 @@
    - **Action**: Use the script to upload files using signed URLs.
 
 7. **Register Dataset**
-   - **Script**: `register-dataset.py`
+   - **Script**: `register-datasets.py`
    - **Action**: Run to register the dataset.
 
 8. **Delete Registries**
